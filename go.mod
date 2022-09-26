@@ -11,17 +11,20 @@ require (
 	github.com/elliotchance/orderedmap/v2 v2.2.0
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-redis/redis/v8 v8.11.5
+	github.com/imdario/mergo v0.3.13
 	github.com/juju/errors v1.0.0
 	github.com/klauspost/pgzip v1.2.5
 	github.com/labstack/echo-contrib v0.13.0
 	github.com/labstack/echo/v4 v4.8.0
 	github.com/mholt/archiver/v3 v3.5.1
 	github.com/micro/go-micro v1.18.0
+	github.com/panjf2000/ants/v2 v2.5.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.13.0
 	github.com/robfig/cron/v3 v3.0.0
 	github.com/satori/go.uuid v1.2.0
+	github.com/sevlyar/go-daemon v0.1.6
 	github.com/shirou/gopsutil v3.21.11+incompatible
 	github.com/tencentyun/cos-go-sdk-v5 v0.7.38
 	go.opentelemetry.io/otel v1.9.0
@@ -61,10 +64,10 @@ require (
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/imdario/mergo v0.3.8 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/labstack/gommon v0.3.1 // indirect
