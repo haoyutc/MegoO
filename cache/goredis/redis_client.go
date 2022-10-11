@@ -3,7 +3,7 @@ package goredis
 import (
 	"context"
 	"fmt"
-	"github.com/go-redis/redis/v8"
+	"github.com/go-redis/redis/v9"
 	"time"
 )
 
@@ -16,7 +16,7 @@ func RedisClient() {
 		DB:       0,
 	})
 
-	err := rdb.Set(ctx, "key", "value", 0)
+	err := rdb.Set(ctx, "key", "value", 0).Err()
 	if err != nil {
 		panic(err)
 	}
@@ -37,6 +37,6 @@ func RedisClient() {
 	}
 
 	rdb.SetNX(ctx, "key3", "expire", 10*time.Second).Result()
-	rdb.SetNX(ctx, "key", "value", redis.KeepTTL)
+	rdb.SetNX(ctx, "key", "value", redis.KeepTTL).Result()
 
 }
