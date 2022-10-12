@@ -4,13 +4,19 @@ go 1.18
 
 require (
 	github.com/alphadose/haxmap v0.3.1
+	github.com/arl/statsviz v0.5.1
 	github.com/beinan/fastid v0.0.0-20190107221622-c03a08f42c37
+	github.com/bsm/redislock v0.8.1
 	github.com/bytedance/sonic v1.3.5
 	github.com/confluentinc/confluent-kafka-go v1.9.2
 	github.com/dablelv/go-huge-util v0.0.21
 	github.com/elliotchance/orderedmap/v2 v2.2.0
 	github.com/gin-gonic/gin v1.8.1
+	github.com/go-redis/cache/v8 v8.4.3
 	github.com/go-redis/redis/v8 v8.11.5
+	github.com/go-redis/redis/v9 v9.0.0-beta.3
+	github.com/go-redis/redis_rate/v9 v9.1.2
+	github.com/go-redis/redismock/v8 v8.0.6
 	github.com/imdario/mergo v0.3.13
 	github.com/juju/errors v1.0.0
 	github.com/klauspost/pgzip v1.2.5
@@ -33,6 +39,8 @@ require (
 	go.opentelemetry.io/otel/trace v1.9.0
 	go.uber.org/zap v1.22.0
 	golang.org/x/exp v0.0.0-20220827204233-334a2380cb91
+	google.golang.org/grpc v1.49.0
+	google.golang.org/protobuf v1.28.1
 	gorm.io/driver/mysql v1.3.6
 	gorm.io/gorm v1.23.8
 )
@@ -63,6 +71,7 @@ require (
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
@@ -93,18 +102,20 @@ require (
 	github.com/ulikunitz/xz v0.5.9 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.1 // indirect
+	github.com/vmihailenco/go-tinylfu v0.2.2 // indirect
+	github.com/vmihailenco/msgpack/v5 v5.3.4 // indirect
+	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa // indirect
-	golang.org/x/net v0.0.0-20221004154528-8021a29435af // indirect
-	golang.org/x/sys v0.0.0-20220928140112-f11e5e49a4ec // indirect
+	golang.org/x/net v0.0.0-20220909164309-bea034e7d591 // indirect
+	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4 // indirect
+	golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
 	google.golang.org/genproto v0.0.0-20220930163606-c98284e70a91 // indirect
-	google.golang.org/grpc v1.49.0 // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
