@@ -2,7 +2,10 @@ package test
 
 import (
 	"fmt"
+	"math/rand"
 	"reflect"
+	"sync"
+	"sync/atomic"
 	"testing"
 )
 
@@ -110,7 +113,7 @@ func ISExist(m map[int]string, id int) (string, bool) {
 // new和make的区别：
 //
 // 二者都是内存的分配（堆上），但是make只用于slice、map以及channel的初始化（非零值）；
-//而new用于类型的内存分配，并且内存置为零。所以在我们编写程序的时候，就可以根据自己的需要很好的选择了。
+// 而new用于类型的内存分配，并且内存置为零。所以在我们编写程序的时候，就可以根据自己的需要很好的选择了。
 //
 // make返回的还是这三个引用类型本身；而new返回的是指向类型的指针。
 func TestSliceAppend(t *testing.T) {
@@ -190,24 +193,72 @@ func TestMapForeach2(t *testing.T) {
 
 }
 
-type People interface {
-	Speak(string) string
+var val int32
+
+func TestAtomic(t *testing.T) {
+	v := val
+	atomic.CompareAndSwapInt32(&val, v, v+1)
 }
 
-type Worker struct {
+// 指针类型修改个人纪录
+
+func (p *Person) changeName(name string) {
+	p.Name = name
 }
 
-func (w *Worker) Speak(s string) (talk string) {
-	if s == "love" {
-		talk = "you are a good worker"
-	} else {
-		talk = "Hi"
+// 非指针类型，打印个人信息
+
+func (p Person) printInfo() {
+	fmt.Printf("My name is %s, birthday is %s and id is %d\n",
+		p.Name, p.Birth, p.Id)
+	p.Id = 3
+}
+
+func TestPerson(t *testing.T) {
+	p := &Person{
+		Id:    1,
+		Name:  "toni",
+		Birth: "1982-9-20",
 	}
-	return
+	p2 := *p
+	p.printInfo()
+	p2.printInfo()
+	p.changeName("jerry")
+	p2.changeName("tom")
+
+	p.printInfo()
+	p2.printInfo()
 }
 
-func TestSpeak(t *testing.T) {
-	var peo People = &Worker{}
-	s := "love"
-	fmt.Println(peo.Speak(s))
+func live() People {
+	var stu *Student // stu 没有初始化，但是 *Student实现了 People 接口，接口不为nil
+	return stu
+}
+
+func TestShow(t *testing.T) {
+	if live() == nil {
+		fmt.Println("AAAAAAAA")
+	} else {
+		fmt.Println("BBBBBBBB")
+	}
+}
+
+func TestGoroutineChannel(t *testing.T) {
+	out := make(chan int)
+	wg := sync.WaitGroup{}
+	wg.Add(2)
+	go func() {
+		defer wg.Done()
+		for i := 0; i < 5; i++ {
+			out <- rand.Intn(5)
+		}
+		close(out)
+	}()
+	go func() {
+		defer wg.Done()
+		for i := range out {
+			fmt.Println(i)
+		}
+	}()
+	wg.Wait()
 }

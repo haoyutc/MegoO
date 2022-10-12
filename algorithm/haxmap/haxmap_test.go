@@ -19,7 +19,7 @@ func TestHaxMap(t *testing.T) {
 	mep.Set(3, "three")
 
 	mep.ForEach(func(key int, value string) {
-		fmt.Printf("key -> %d | value -> %s", key, value)
+		fmt.Printf("key -> %d | value -> %s\n", key, value)
 	})
 
 	mep.Del(1)
